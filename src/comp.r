@@ -17,28 +17,28 @@ graphics.off() # clear out all plots from previous work.
 
 cat("\014") # clear the console
 
-
-# you will need to install the dslabs library once.
-# install.packages("dslabs")
 library(tidyverse)
+library(readr)
 
-# view the data set.
-View(us_contagious_diseases)
+# pick the data file
+myFile <- file.choose()
+# load the datafile as a CSV file
+dat <- read.table(myFile, header = TRUE, sep = ",")
+# view the dataset
+View(dat)
 
-# Add your code after this line according to the steps of the assignment sheet.
 
-# Creating a dat variable and a measles variable
-dat <- us_contagious_diseases
-dat_measles <- dat %>% filter(disease == "Measles")
-View(dat_measles)
+getDates <- select(albumDigital, Date)
+View(getDates)
+fixDates <- as.Date(getDates, "%b/%d/%y")
 
-# Adding a column to the measles dat query using the "mutate" function
-dat_measles_rate <- mutate(dat_measles, rate = ((count * 100000 / population) * (weeks_reporting / 52)))
-View(dat_measles_rate)
+betterDates <- as.Date(albumDigital$Date, format =  "%b/%d/%y")
+View(betterDates)
 
-# New dataset to remove Alaska and Hawaii
-dat_measles_rate_lessTwoStates <- dat_measles_rate <- filter(dat_measles_rate, state != "Alaska", state != "Hawaii")
-View(dat_measles_rate_lessTwoStates)
+ggplot(data = dat,
+       aes(x = Date, y = hamilton.album, group = 1)) + 
+  geom_point() +
+  geom_line()
 
 # Plotting some data now that Hawaii and Alaska are Gonzo
 
@@ -48,13 +48,8 @@ ggplot(data = dat_measles_rate_lessTwoStates,
   geom_vline(xintercept = 1963, color = "red") +
   labs(y = "Positivity Rate Over Time")
 
-# New dataset for just California because that's what the instructions are asking me to do
-dat_caliFocus <- dat_measles_rate_lessTwoStates <- filter(dat_measles_rate_lessTwoStates, state == "California")
-View(dat_caliFocus)
 
-ggplot(data = dat_measles_rate_lessTwoStates,
-       mapping = aes(x = year, y = rate, color = year)) +
-  geom_point() +
-  geom_vline(xintercept = 1963, color = "red") +
-  labs(y = "Positivity Rate Over Time")
+
+
+
 
