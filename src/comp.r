@@ -21,19 +21,41 @@ library(tidyverse)
 library(readr)
 
 # pick the data file
-myFile <- file.choose()
+disFile <- file.choose()
 # load the datafile as a CSV file
-dat <- read.table(myFile, header = TRUE, sep = ",")
+dat <- read.table(disFile, header = TRUE, sep = ",")
 # view the dataset
 View(dat)
 
+ggplot(data = dat) + 
+  geom_point(aes(x = Day, y = hamilton.album, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.album, group = 1), color = "blue") +
+  geom_point(aes(x = Day, y = hamilton.soundtrack, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.soundtrack, group = 1), color = "red") +
+  geom_point(aes(x = Day, y = hamilton.merchandise, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
+  geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
+  geom_vline(xintercept = "07-03", color = "black")
 
-getDates <- select(albumDigital, Date)
-View(getDates)
-fixDates <- as.Date(getDates, "%b/%d/%y")
+# pick the data file
+digiFile <- file.choose()
+# load the datafile as a CSV file
+dat2 <- read.table(digiFile, header = TRUE, sep = ",")
+# view the dataset
+View(dat2)
 
-betterDates <- as.Date(albumDigital$Date, format =  "%b/%d/%y")
-View(betterDates)
+ggplot(data = dat2) + 
+  geom_point(aes(x = Day, y = hamilton.album, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.album, group = 1), color = "blue") +
+  geom_point(aes(x = Day, y = hamilton.soundtrack, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.soundtrack, group = 1), color = "red") +
+  geom_point(aes(x = Day, y = hamilton.merchandise, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
+  geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
+  geom_vline(xintercept = "09-25", color = "black") +
+  geom_vline(xintercept = "10-16", color = "black")
 
 ggplot(data = dat,
        aes(x = Date, y = hamilton.album, group = 1)) + 
