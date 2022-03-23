@@ -32,7 +32,9 @@ ggplot(data = dat) +
   geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
-  geom_vline(xintercept = "07-03", color = "black")
+  geom_vline(xintercept = "07-03", color = "black") +
+  labs(y = "Search activity", x = "Time") +
+  ggtitle("Search activity before and after the Disney+ release of 'Hamilton'")
 
 # pick the data file comp_data/data/digital searches v1.csv
 digiFile <- file.choose()
@@ -52,7 +54,8 @@ ggplot(data = dat2) +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "09-25", color = "black") +
-  geom_vline(xintercept = "10-16", color = "black")
+  geom_vline(xintercept = "10-16", color = "black") +
+  labs(y = "Search activity", x = "Time")
 
 # pick the data file comp_data/data/app searches v1.csv
 appFile <- file.choose()
@@ -69,7 +72,8 @@ ggplot(data = dat3) +
   geom_line(aes(x = Day, y = hamilton.tour, group = 1), color = "orange") +
   geom_point(aes(x = Day, y = ham4ham, group = 1)) +
   geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
-  geom_vline(xintercept = "08-01", color = "black")
+  geom_vline(xintercept = "08-01", color = "black") +
+  labs(y = "Search activity", x = "Time")
 
 # pick the data file comp_data/data/ham4ham searches v1.csv
 ham4File <- file.choose()
@@ -86,7 +90,8 @@ ggplot(data = dat4) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_point(aes(x = Day, y = ham4ham, group = 1)) +
   geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
-  geom_vline(xintercept = "07-27", color = "black")
+  geom_vline(xintercept = "07-27", color = "black") +
+  labs(y = "Search activity", x = "Time")
 
 ggplot(data = dat,
        aes(x = Date, y = hamilton.album, group = 1)) + 
@@ -110,7 +115,8 @@ ggplot(data = dat) +
   geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
-  geom_vline(xintercept = "07-03", color = "black")
+  geom_vline(xintercept = "07-03", color = "black") +
+  labs(y = "Search activity", x = "Time")
 
 # pick the data file comp_data/data/opening searches v1.csv
 openFile <- file.choose()
@@ -129,7 +135,8 @@ ggplot(data = dat5) +
   geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
-  geom_vline(xintercept = "07-13", color = "black")
+  geom_vline(xintercept = "07-13", color = "black") +
+  labs(y = "Search activity", x = "Time")
 
 # Plotting some data now that Hawaii and Alaska are Gonzo
 
