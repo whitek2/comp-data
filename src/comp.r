@@ -54,7 +54,7 @@ ggplot(data = dat2) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "09-25", color = "black") +
   geom_vline(xintercept = "10-16", color = "black") +
-  labs(y = "Search activity", x = "Time")
+  labs(y = "Search activity", x = "Time", title = "Search activity before the digital release of the official album/after the release of the physical album", subtitle = "August 28th, 2015 - November 13th, 2015")
 
 # pick the data file comp_data/data/app release/app searches v2.csv
 appFile <- file.choose()
@@ -74,7 +74,7 @@ ggplot(data = dat3) +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "08-01", color = "black") +
-  labs(y = "Search activity", x = "Time")
+  labs(y = "Search activity", x = "Time", title = "Search activity before and after the release of the Hamilton app", subtitle = "June 20th, 2017 - September 12th, 2017")
 
 # pick the data file comp_data/data/ham4ham perfs/ham4ham searches v3.csv
 ham4File <- file.choose()
@@ -93,7 +93,7 @@ ggplot(data = dat4) +
   geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
   geom_point(aes(x = Day, y = ham4ham, group = 1)) +
   geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
-  labs(y = "Search activity", x = "Time")
+  labs(y = "Search activity", x = "Time", title = "Search activity from the start of the Ham4Ham performances to the 30th performance", subtitle = "July 13th, 2015 - September 2nd, 2015")
 
 # pick the data file comp_data/data/opening searches v1.csv
 openFile <- file.choose()
@@ -113,18 +113,6 @@ ggplot(data = dat5) +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "07-13", color = "black") +
-  labs(y = "Search activity", x = "Time")
-
-# Plotting some data now that Hawaii and Alaska are Gonzo
-
-ggplot(data = dat_measles_rate_lessTwoStates,
-       mapping = aes(x = year, y = rate, color = year)) +
-  geom_point() +
-  geom_vline(xintercept = 1963, color = "red") +
-  labs(y = "Positivity Rate Over Time")
-
-
-
-
+  labs(y = "Search activity", x = "Time", title = "Search activity before and after previews began", subtitle = "June 1st, 2015 - August 24th, 2015")
 
 
