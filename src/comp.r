@@ -15,7 +15,7 @@ cat("\014") # clear the console
 library(tidyverse)
 library(readr)
 
-# pick the data file comp_data/data/disney searches v2.csv
+# pick the data file comp_data/data/disney release/disney searches v2.csv
 disFile <- file.choose()
 # load the datafile as a CSV file
 dat <- read.table(disFile, header = TRUE, sep = ",")
@@ -33,13 +33,12 @@ ggplot(data = dat) +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "07-03", color = "black") +
-  labs(y = "Search activity", x = "Time") +
-  ggtitle("Search activity before and after the Disney+ release of 'Hamilton'")
+  labs(y = "Search activity", x = "Time", title = "Search activity before and after the Disney+ release of 'Hamilton'", subtitle = "June 5th, 2020 - July 31st, 2020")
 
-# pick the data file comp_data/data/digital searches v1.csv
-digiFile <- file.choose()
+# pick the data file comp_data/data/album release/album searches v2.csv
+albFile <- file.choose()
 # load the datafile as a CSV file
-dat2 <- read.table(digiFile, header = TRUE, sep = ",")
+dat2 <- read.table(albFile, header = TRUE, sep = ",")
 # view the dataset
 View(dat2)
 
@@ -57,7 +56,7 @@ ggplot(data = dat2) +
   geom_vline(xintercept = "10-16", color = "black") +
   labs(y = "Search activity", x = "Time")
 
-# pick the data file comp_data/data/app searches v1.csv
+# pick the data file comp_data/data/app release/app searches v2.csv
 appFile <- file.choose()
 # load the datafile as a CSV file
 dat3 <- read.table(appFile, header = TRUE, sep = ",")
@@ -72,50 +71,28 @@ ggplot(data = dat3) +
   geom_line(aes(x = Day, y = hamilton.tour, group = 1), color = "orange") +
   geom_point(aes(x = Day, y = ham4ham, group = 1)) +
   geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
+  geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
+  geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
   geom_vline(xintercept = "08-01", color = "black") +
   labs(y = "Search activity", x = "Time")
 
-# pick the data file comp_data/data/ham4ham searches v1.csv
+# pick the data file comp_data/data/ham4ham perfs/ham4ham searches v3.csv
 ham4File <- file.choose()
 # load the datafile as a CSV file
 dat4 <- read.table(ham4File, header = TRUE, sep = ",")
 # view the dataset
 View(dat4)
 
-# make a plot to compare searches for hamilton "lottery," "musical," and "ham4ham" before and after the start of Ham4Ham lottery performances
+# make a plot to compare searches for hamilton "lottery," "musical," "merchandise," and "ham4ham" from the first lottery performance to the 30th
 ggplot(data = dat4) + 
   geom_point(aes(x = Day, y = hamilton.lottery, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.lottery, group = 1), color = "purple") +
   geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
-  geom_point(aes(x = Day, y = ham4ham, group = 1)) +
-  geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
-  geom_vline(xintercept = "07-27", color = "black") +
-  labs(y = "Search activity", x = "Time")
-
-ggplot(data = dat,
-       aes(x = Date, y = hamilton.album, group = 1)) + 
-  geom_point() +
-  geom_line()
-
-# pick the data file comp_data/data/disney searches v2.csv
-disFile <- file.choose()
-# load the datafile as a CSV file
-dat <- read.table(disFile, header = TRUE, sep = ",")
-# view the dataset
-View(dat)
-
-# make a plot to compare searches for "album," "soundtrack," "merchandise," and "musical" before and after the disney+ release
-ggplot(data = dat) + 
-  geom_point(aes(x = Day, y = hamilton.album, group = 1)) +
-  geom_line(aes(x = Day, y = hamilton.album, group = 1), color = "blue") +
-  geom_point(aes(x = Day, y = hamilton.soundtrack, group = 1)) +
-  geom_line(aes(x = Day, y = hamilton.soundtrack, group = 1), color = "red") +
   geom_point(aes(x = Day, y = hamilton.merchandise, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.merchandise, group = 1), color = "yellow") +
-  geom_point(aes(x = Day, y = hamilton.musical, group = 1)) +
-  geom_line(aes(x = Day, y = hamilton.musical, group = 1), color = "green") +
-  geom_vline(xintercept = "07-03", color = "black") +
+  geom_point(aes(x = Day, y = ham4ham, group = 1)) +
+  geom_line(aes(x = Day, y = ham4ham, group = 1), color = "magenta") +
   labs(y = "Search activity", x = "Time")
 
 # pick the data file comp_data/data/opening searches v1.csv
@@ -125,7 +102,7 @@ dat5 <- read.table(openFile, header = TRUE, sep = ",")
 # view the dataset
 View(dat5)
 
-# make a plot to compare searches for hamilton "album," "soundtrack," "merchandise," and "musical" before and after the album release
+# make a plot to compare searches for hamilton "album," "soundtrack," "merchandise," and "musical" before and after previews began
 ggplot(data = dat5) + 
   geom_point(aes(x = Day, y = hamilton.album, group = 1)) +
   geom_line(aes(x = Day, y = hamilton.album, group = 1), color = "blue") +
